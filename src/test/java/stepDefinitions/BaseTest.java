@@ -19,7 +19,7 @@ public class BaseTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.MAC);
         chromeOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-        System.setProperty("webdriver.chrome.driver", "/Users/cbrat62/Desktop/Selenium/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
