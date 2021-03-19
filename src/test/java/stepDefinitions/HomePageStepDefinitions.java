@@ -63,4 +63,24 @@ public class HomePageStepDefinitions extends BaseTest {
     public void checkLatestWeightResult() {
         homePage.checkLatestWeighResult();
     }
+
+    @When("right grid is cleared for round 2")
+    public void clearRightGridForRound2() {
+        homePage.manuallyClearGrid('r');
+    }
+
+    @When("coin 6 is added to first cell in the right grid")
+    public void inputCoinSixIntoRightGrid() {
+        homePage.insertCoinIntoRightGrid(6,0);
+    }
+
+    @When("coin 7 is added to second cell in the right grid")
+    public void inputCoinSevenIntoRightGrid() {
+        homePage.insertCoinIntoRightGrid(7,1);
+    }
+
+    @When("coin 8 is added to third cell in the right grid")
+    public void inputCoinEightIntoRightGrid() {
+        homePage.insertCoinIntoRightGrid(8,2);
+    }
 }
