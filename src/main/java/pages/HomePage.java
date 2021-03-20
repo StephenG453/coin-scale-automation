@@ -93,10 +93,10 @@ public class HomePage extends BasePage {
             for (int i = 0; i < 3; i++) {
                 driver.findElement(By.id("coin_" + i)).click();
                 Alert alert = driver.switchTo().alert();
-                System.out.println(alert.getText());
+                System.out.println("Alert text is: " + alert.getText());
 
                 if (alert.getText().contains("Yay!")) {
-                    System.out.println("fake weight is coin " + i);
+                    System.out.println("\nfake weight is coin " + i);
                     alert.accept();
                     break;
                 }
@@ -106,10 +106,10 @@ public class HomePage extends BasePage {
             for (int i = 3; i < 6; i++) {
                 driver.findElement(By.id("coin_" + i)).click();
                 Alert alert = driver.switchTo().alert();
-                System.out.println(alert.getText());
+                System.out.println("Alert text is: " + alert.getText());
 
                 if (alert.getText().contains("Yay!")) {
-                    System.out.println("fake weight is coin " + i);
+                    System.out.println("\nfake weight is coin " + i);
                     alert.accept();
                     break;
                 }
@@ -119,10 +119,10 @@ public class HomePage extends BasePage {
             for (int i = 6; i < 9; i++) {
                 driver.findElement(By.id("coin_" + i)).click();
                 Alert alert = driver.switchTo().alert();
-                System.out.println(alert.getText());
+                System.out.println("Alert text is: " + alert.getText());
 
                 if (alert.getText().contains("Yay!")) {
-                    System.out.println("fake weight is coin " + i);
+                    System.out.println("\nfake weight is coin " + i);
                     alert.accept();
                     break;
                 }

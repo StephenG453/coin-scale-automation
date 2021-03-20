@@ -93,5 +93,7 @@ public class HomePageStepDefinitions extends BaseTest {
     @Then("fake weight is found")
     public void locateFakeWeightWithinGroup() {
         homePage.locateFakeWeightWithinGroup();
+
+        baseTest.cleanUp();
     }
 }
