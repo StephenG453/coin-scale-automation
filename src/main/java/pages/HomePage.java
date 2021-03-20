@@ -24,6 +24,10 @@ public class HomePage extends BasePage {
     private boolean isFakeWeightInGroup2 = false;
     private boolean isFakeWeightInGroup3 = false;
 
+    private int weighCount;
+
+    private List<WebElement> list;
+
     public HomePage(WebDriver driver) {
         super(driver);
         driver.get("http://ec2-54-208-152-154.compute-1.amazonaws.com/");
@@ -47,10 +51,11 @@ public class HomePage extends BasePage {
 
     public void pressWeighButton() {
         weighButton.click();
+        weighCount++;
     }
 
     public void checkLatestWeighResult() {
-        List<WebElement> list = weighings.findElements(By.tagName("li"));
+        list = weighings.findElements(By.tagName("li"));
 
         //in round 1
         if (list.size() == 1) {
@@ -124,6 +129,7 @@ public class HomePage extends BasePage {
                 alert.accept();
             }
         }
+        printAuxiliaryInfo();
     }
 
     public void manuallyClearGrid(Character grid) {
@@ -142,6 +148,14 @@ public class HomePage extends BasePage {
                 WebElement cellToBeCleared = driver.findElement(By.id("right_" + i));
                 cellToBeCleared.sendKeys(Keys.BACK_SPACE);
             }
+        }
+    }
+
+    private void printAuxiliaryInfo() {
+        System.out.println("\nNumber of total weighings made: " + weighCount);
+        System.out.println("Weighing List:");
+        for (WebElement element : list) {
+            System.out.println(element.getText());
         }
     }
 }
