@@ -1,5 +1,6 @@
 #coin-scale-automation:
-This is a quickly built Selenium-Cucumber automation framework written in java
+This is a quickly built Selenium-Cucumber automation framework written in java to automate
+this web app: http://ec2-54-208-152-154.compute-1.amazonaws.com/
 
 ## Project setup:
 1. Once this project is cloned into your local, run a maven clean/install to refresh the project
