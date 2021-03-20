@@ -1,10 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import sun.jvm.hotspot.memory.SystemDictionary;
 
 import java.util.List;
 
@@ -21,6 +19,10 @@ public class HomePage extends BasePage {
 
     private boolean isRound1ResultEqual;
     private boolean isRound2ResultEqual;
+
+    private boolean isFakeWeightInGroup1 = false;
+    private boolean isFakeWeightInGroup2 = false;
+    private boolean isFakeWeightInGroup3 = false;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -68,19 +70,62 @@ public class HomePage extends BasePage {
     public void determineGroupWithFakeWeight() {
         if (isRound1ResultEqual) {
             if (isRound2ResultEqual) {
-                System.out.println("fake weight is in Group 1. Click 0, 1, or 2");
+                isFakeWeightInGroup1 = true;
             } else {
-                System.out.println("fake weight is in Group 3. Click 6, 7, or 8");
+                isFakeWeightInGroup3 = true;
             }
         } else {
             if (isRound2ResultEqual) {
-                System.out.println("fake weight is in Group 2. Click 3, 4, or 5");
+                isFakeWeightInGroup2 = true;
             } else {
-                System.out.println("fake weight is in Group 1. Click 0, 1, or 2");
+                isFakeWeightInGroup1 = true;
             }
         }
-
     }
+
+    public void locateFakeWeightWithinGroup() {
+        if (isFakeWeightInGroup1) {
+            for (int i = 0; i < 3; i++) {
+                driver.findElement(By.id("coin_" + i)).click();
+                Alert alert = driver.switchTo().alert();
+                System.out.println(alert.getText());
+
+                if (alert.getText().contains("Yay!")) {
+                    System.out.println("fake weight is coin " + i);
+                    alert.accept();
+                    break;
+                }
+                alert.accept();
+            }
+        } else if (isFakeWeightInGroup2) {
+            for (int i = 3; i < 6; i++) {
+                driver.findElement(By.id("coin_" + i)).click();
+                Alert alert = driver.switchTo().alert();
+                System.out.println(alert.getText());
+
+                if (alert.getText().contains("Yay!")) {
+                    System.out.println("fake weight is coin " + i);
+                    alert.accept();
+                    break;
+                }
+                alert.accept();
+            }
+        } else {
+            for (int i = 6; i < 9; i++) {
+                driver.findElement(By.id("coin_" + i)).click();
+                Alert alert = driver.switchTo().alert();
+                System.out.println(alert.getText());
+
+                if (alert.getText().contains("Yay!")) {
+                    System.out.println("fake weight is coin " + i);
+                    alert.accept();
+                    break;
+                }
+                alert.accept();
+            }
+        }
+    }
+
     public void manuallyClearGrid(Character grid) {
         if (grid != 'l' && grid != 'r') {
             System.out.println("Please enter 'l' to clear left grid or 'r' to clear right grid. App will now close");

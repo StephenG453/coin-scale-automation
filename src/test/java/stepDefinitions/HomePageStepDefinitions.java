@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -87,5 +88,10 @@ public class HomePageStepDefinitions extends BaseTest {
     @When("group with fake weight is determined")
     public void determineGroupWithFakeWeight() {
         homePage.determineGroupWithFakeWeight();
+    }
+
+    @Then("fake weight is found")
+    public void locateFakeWeightWithinGroup() {
+        homePage.locateFakeWeightWithinGroup();
     }
 }
