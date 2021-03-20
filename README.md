@@ -1,4 +1,4 @@
-#coin-scale-automation:
+# coin-scale-automation:
 This is a quickly built Selenium-Cucumber automation framework written in java to automate
 this web app: http://ec2-54-208-152-154.compute-1.amazonaws.com/
 
@@ -8,7 +8,7 @@ this web app: http://ec2-54-208-152-154.compute-1.amazonaws.com/
 3. inside BaseTest.java , adjust "System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");" to point to
 the location of chromedriver on your local machine
    
-###Notes
+### Notes
 
 - This framework can easily be added into a CI/CD server like Team City or Jenkins with
 user friendly and concise reporting
