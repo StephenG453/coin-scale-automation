@@ -83,4 +83,9 @@ public class HomePageStepDefinitions extends BaseTest {
     public void inputCoinEightIntoRightGrid() {
         homePage.insertCoinIntoRightGrid(8,2);
     }
+
+    @When("group with fake weight is determined")
+    public void determineGroupWithFakeWeight() {
+        homePage.determineGroupWithFakeWeight();
+    }
 }

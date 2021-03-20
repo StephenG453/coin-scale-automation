@@ -58,13 +58,29 @@ public class HomePage extends BasePage {
             isRound1ResultEqual = latestWebElementText.contains("=");
         }   // in round 2
         else if (list.size() == 2) {
-            WebElement latestWebElement = list.get(0);
+            WebElement latestWebElement = list.get(1);
             String latestWebElementText = latestWebElement.getText();
 
             isRound2ResultEqual = latestWebElementText.contains("=");
         }
     }
 
+    public void determineGroupWithFakeWeight() {
+        if (isRound1ResultEqual) {
+            if (isRound2ResultEqual) {
+                System.out.println("fake weight is in Group 1. Click 0, 1, or 2");
+            } else {
+                System.out.println("fake weight is in Group 3. Click 6, 7, or 8");
+            }
+        } else {
+            if (isRound2ResultEqual) {
+                System.out.println("fake weight is in Group 2. Click 3, 4, or 5");
+            } else {
+                System.out.println("fake weight is in Group 1. Click 0, 1, or 2");
+            }
+        }
+
+    }
     public void manuallyClearGrid(Character grid) {
         if (grid != 'l' && grid != 'r') {
             System.out.println("Please enter 'l' to clear left grid or 'r' to clear right grid. App will now close");

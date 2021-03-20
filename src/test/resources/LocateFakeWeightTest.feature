@@ -16,3 +16,4 @@ Feature: test functionality of locating a fake weight inside the React App
     When coin 8 is added to third cell in the right grid
     When weigh button is pressed
     When latest weight result is checked
+    When group with fake weight is determined
